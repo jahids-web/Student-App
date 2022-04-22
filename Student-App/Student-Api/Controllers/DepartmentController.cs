@@ -7,5 +7,10 @@ namespace Student_Api.Controllers
     [ApiController]
     public class DepartmentController : ControllerBase
     {
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok("get all data");
+        }
     }
 }
