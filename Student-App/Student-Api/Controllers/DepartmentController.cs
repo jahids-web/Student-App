@@ -3,11 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Student_Api.Controllers
 {
-   
-    [Route("api/v{version:apiVersion}/[controller]")]
-    [ApiVersion("1.0")]
-    [ApiController]
-    public class DepartmentController : ControllerBase
+
+    public class DepartmentController : MainController
     {
         [HttpGet]
         public IActionResult GetAll()
