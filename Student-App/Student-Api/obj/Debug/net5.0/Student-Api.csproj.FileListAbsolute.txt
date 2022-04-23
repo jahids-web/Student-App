@@ -26,3 +26,4 @@ G:\C#\Api-Projects\Student-App\Student-App\Student-Api\obj\Debug\net5.0\refint\S
 G:\C#\Api-Projects\Student-App\Student-App\Student-Api\obj\Debug\net5.0\Student-Api.pdb
 G:\C#\Api-Projects\Student-App\Student-App\Student-Api\obj\Debug\net5.0\Student-Api.genruntimeconfig.cache
 G:\C#\Api-Projects\Student-App\Student-App\Student-Api\obj\Debug\net5.0\ref\Student-Api.dll
+G:\C#\Api-Projects\Student-App\Student-App\Student-Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll
