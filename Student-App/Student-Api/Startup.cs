@@ -32,6 +32,13 @@ namespace Student_Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Student_Api", Version = "v1" });
             });
+            //Updating the middlewear to use versioning
+            services.AddApiVersioning(opt =>
+            {
+                opt.AssumeDefaultVersionWhenUnspecified = true;
+                opt.DefaultApiVersion = ApiVersion.Default;
+                opt.ReportApiVersions = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
