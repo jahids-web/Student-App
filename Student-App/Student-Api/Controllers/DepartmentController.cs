@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Student_Api.Controllers
 {
-
     public class DepartmentController : MainController
     {
         [HttpGet]
