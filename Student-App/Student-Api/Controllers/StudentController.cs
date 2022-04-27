@@ -1,34 +1,44 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BLL.Services;
+using DLL.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Student_Api.Controllers
 {
     public class StudentController : MainController
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        private readonly IStudentService _studentRepository;
+
+        public StudentController(IStudentService studentService)
         {
-            return Ok("get all data");
-        }
-        [HttpGet("{email}")]
-        public IActionResult GetA(string email)
-        {
-            return Ok("get a " + email + "data");
+            _studentRepository = studentService;
         }
         [HttpPost]
-        public IActionResult Insert()
+        public async Task<IActionResult> InsertAsync(Student student)
         {
-            return Ok("Insert new email");
+            return Ok(await _studentRepository.InsertAsync(student));
         }
-        [HttpPut("{email}")]
-        public IActionResult Update(string email)
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
         {
-            return Ok("update" + email);
+           return Ok(await _studentRepository.GetAllAsync()); 
+        }
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetAAsync(string email)
+        {
+            return Ok(await _studentRepository.GetAAsync(email));
+        }
+    
+        [HttpPut("{email}")]
+        public async Task<IActionResult> UpdateAsync(string email,Student student)
+        {
+            return Ok(await _studentRepository.UpdateAsync(email,student));
         }
         [HttpDelete("{email}")]
-        public IActionResult Delete(string email)
+        public async Task<IActionResult> DeleteAsync(string email)
         {
-            return Ok("delete" + email);
+            return Ok(await _studentRepository.DeleteAsync(email));
         }
     }
 }

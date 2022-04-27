@@ -1,34 +1,47 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BLL.Services;
+using DLL.Model;
+using DLL.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Student_Api.Controllers
 {
     public class DepartmentController : MainController
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        
+        private readonly IDepartmentService _departmentService;
+
+        public DepartmentController(IDepartmentService departmentService)
         {
-            return Ok("get all data");
+            _departmentService = departmentService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _departmentService.GetAllAsync());
         }
         [HttpGet("{code}")]
-        public IActionResult GetA(string code)
+        public async Task<IActionResult> GetA(string code)
         {
-            return Ok("get a "+ code +"data");
+            return Ok(await _departmentService.GetAAsync(code));
         }
         [HttpPost]
-        public IActionResult Insert()
+        public async Task<IActionResult> Insert(Department department)
         {
-            return Ok("Insert new department");
+            return Ok(await _departmentService.InsertAsync(department));
         }
+
         [HttpPut("{code}")]
-        public IActionResult Update (string code)
+        public async Task<IActionResult> Update(string code,Department department)
         {
-            return Ok("update" +code);
+            return Ok(await _departmentService.UpdateAsync(code,department));
         }
         [HttpDelete("{code}")]
-        public IActionResult Delete(string code)
+        public async Task<IActionResult> Delete(string code)
         {
-            return Ok("delete" +code);
+            return Ok(await _departmentService.DeleteAsync(code));
         }
     }
 }

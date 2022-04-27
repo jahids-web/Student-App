@@ -1,3 +1,4 @@
+using BLL;
 using DLL;
 using DLL.DataContext;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +44,7 @@ namespace Student_Api
                 opt.ReportApiVersions = true;
             });
             DLLDepandency.AllDepandency(services, Configuration);
+            BLLDependency.AllDependency(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
