@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace DLL.Repositories
 {
-    public interface IDepartmentRepository
+    public interface IDepartmentRepository:IRepositoryBase<Department>
     {
       
     }
 
-    public class DepartmentRepository : IDepartmentRepository
+    public class DepartmentRepository : RepositoryBase<Department>, IDepartmentRepository
     {
-       
+        public DepartmentRepository(ApplictionDbContext context) : base(context)
+        {
+        }
     }
 }

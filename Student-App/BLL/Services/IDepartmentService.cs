@@ -23,6 +23,7 @@ namespace BLL.Services
         }
         public async Task<Department> InsertAsync(Department departmen)
         {
+
             return await _departmentRepository.InsertAsync(departmen);
         }
       
